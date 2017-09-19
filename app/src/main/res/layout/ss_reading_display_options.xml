@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Copyright (c) 2016 Adventech <info@adventech.io>
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  ~ THE SOFTWARE.
+  -->
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.cryart.sabbathschool.viewmodel.SSReadingDisplayOptionsViewModel" />
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <TextView
+            android:gravity="start|top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="@dimen/ss_reading_display_options_subtitle_margin"
+            android:text="@string/ss_reading_display_options_color_theme"/>
+
+        <include layout="@layout/ss_horizontal_line" />
+
+        <LinearLayout
+            android:clickable="true"
+            android:weightSum="3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackground"
+                android:paddingTop="@dimen/ss_reading_display_options_button_padding"
+                android:paddingBottom="@dimen/ss_reading_display_options_button_padding"
+                android:onClick="@{() -> viewModel.setThemeLight()}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="@string/ss_reading_display_options_theme_light" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:background="@color/colorDisplayThemeSepia"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingTop="@dimen/ss_reading_display_options_button_padding"
+                android:paddingBottom="@dimen/ss_reading_display_options_button_padding"
+                android:onClick="@{() -> viewModel.setThemeSepia()}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textAlignment="center"
+                    android:text="@string/ss_reading_display_options_theme_sepia" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:background="@color/colorDisplayThemeDark"
+                android:foreground="?attr/selectableItemBackground"
+                android:paddingTop="@dimen/ss_reading_display_options_button_padding"
+                android:paddingBottom="@dimen/ss_reading_display_options_button_padding"
+                android:onClick="@{() -> viewModel.setThemeDark()}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textColor="@android:color/white"
+                    android:textAlignment="center"
+                    android:text="@string/ss_reading_display_options_theme_dark" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <include layout="@layout/ss_horizontal_line" />
+
+        <TextView
+            android:gravity="start|top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="@dimen/ss_reading_display_options_subtitle_margin"
+            android:text="@string/ss_reading_display_options_typeface" />
+
+        <LinearLayout
+            android:weightSum="4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{() -> viewModel.setFontAndada()}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/ss_reading_display_options_button_padding"
+                    android:paddingBottom="@dimen/ss_reading_display_options_button_padding"
+                    android:text="@string/ss_reading_display_options_typeface_andada"
+                    fontPath="fonts/Andada-Regular.ttf" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{() -> viewModel.setFontLato()}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/ss_reading_display_options_button_padding"
+                    android:paddingBottom="@dimen/ss_reading_display_options_button_padding"
+                    android:text="@string/ss_reading_display_options_typeface_lato"
+                    fontPath="fonts/Lato-Regular.ttf" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{() -> viewModel.setFontPTSerif()}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/ss_reading_display_options_button_padding"
+                    android:paddingBottom="@dimen/ss_reading_display_options_button_padding"
+                    android:text="@string/ss_reading_display_options_typeface_pt_serif"
+                    fontPath="fonts/PT-Serif-Regular.ttf" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:background="?attr/selectableItemBackground"
+                android:onClick="@{() -> viewModel.setFontPTSans()}">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:paddingTop="@dimen/ss_reading_display_options_button_padding"
+                    android:paddingBottom="@dimen/ss_reading_display_options_button_padding"
+                    android:text="@string/ss_reading_display_options_typeface_pt_sans"
+                    fontPath="fonts/PT-Sans-Regular.ttf" />
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <TextView
+            android:gravity="start|top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimary"
+            android:layout_margin="@dimen/ss_reading_display_options_subtitle_margin"
+            android:text="@string/ss_reading_display_options_font_size" />
+
+        <LinearLayout
+            android:weightSum="7"
+            android:layout_width="match_parent"
+            android:paddingTop="@dimen/ss_reading_display_options_seekbar_padding_top"
+            android:paddingBottom="@dimen/ss_reading_display_options_seekbar_padding_bottom"
+            android:layout_height="wrap_content">
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center|end"
+                    android:textAlignment="textEnd"
+                    android:text="@string/ss_reading_display_options_aa" />
+
+            </FrameLayout>
+
+            <com.cryart.sabbathschool.view.SSSeekBar
+                android:id="@+id/ss_reading_menu_display_options_size"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="5"
+                android:layout_gravity="center|center_vertical"
+                android:max="4" />
+
+            <FrameLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="start|center"
+                    android:textAlignment="textStart"
+                    android:textSize="@dimen/ss_reading_display_options_seekbar_aa_increase"
+                    android:text="@string/ss_reading_display_options_aa" />
+
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

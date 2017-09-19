@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+  ~ Copyright (c) 2016 Adventech <info@adventech.io>
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy
+  ~ of this software and associated documentation files (the "Software"), to deal
+  ~ in the Software without restriction, including without limitation the rights
+  ~ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  ~ copies of the Software, and to permit persons to whom the Software is
+  ~ furnished to do so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in
+  ~ all copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  ~ THE SOFTWARE.
+  -->
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.cryart.sabbathschool.viewmodel.SSLoginViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="5"
+        tools:context="com.cryart.sabbathschool.view.SSLoginActivity">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="@color/colorPrimary"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/ss_login_app_logo"
+                android:layout_width="@dimen/ss_login_app_logo_size"
+                android:layout_height="@dimen/ss_login_app_logo_size"
+                android:layout_centerInParent="true"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/ss_logo" />
+
+            <TextView
+                android:id="@+id/ss_login_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ss_login_app_logo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/ss_login_app_name_margin_top"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/ss_login_app_name_font_size"
+                fontPath="fonts/Lato-Regular.ttf"
+                android:text="@string/ss_app_name" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ProgressBar
+                android:visibility="@{viewModel.ssLoginLoadingVisibility}"
+                android:layout_width="@dimen/ss_login_loading_size"
+                android:layout_height="@dimen/ss_login_loading_size"
+                android:layout_centerVertical="true"
+                android:layout_centerInParent="true"
+                android:indeterminate="true"
+                style="?android:attr/progressBarStyle" />
+
+            <LinearLayout
+                android:visibility="@{viewModel.ssLoginControlsVisibility}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerInParent="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/ss_login_button_google"
+                    android:layout_width="@dimen/ss_login_button_social_width"
+                    android:layout_height="@dimen/ss_login_button_social_height"
+                    android:layout_margin="@dimen/ss_login_button_margin_top"
+                    android:layout_weight="1"
+                    android:background="@drawable/ss_google_sign_in_button"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/ss_login_button_social_text_size"
+                    android:textColor="#8C000000"
+                    android:text="@string/ss_login_button_google"
+                    android:onClick="@{() -> viewModel.onClickSignInGoogle()}" />
+
+                <Button
+                    android:id="@+id/ss_login_fb_login_button"
+                    android:layout_width="@dimen/ss_login_button_social_width"
+                    android:layout_height="@dimen/ss_login_button_social_height"
+                    android:layout_margin="@dimen/ss_login_button_margin_top"
+                    android:layout_weight="1"
+                    android:background="@drawable/ss_facebook_login_button"
+                    android:textAllCaps="false"
+                    android:textSize="14sp"
+                    android:textColor="#8C000000"
+                    android:text="@string/ss_login_button_facebook"
+                    android:onClick="@{() -> viewModel.onClickSignInFB()}" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/ss_login_button_margin_top"
+                    android:layout_weight="1"
+                    android:text="@string/ss_login_button_anonymous"
+                    android:onClick="@{() -> viewModel.onClickSignInAnonymous()}"
+                    style="@style/Widget.AppCompat.Button.Borderless" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>
