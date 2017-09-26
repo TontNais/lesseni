@@ -243,7 +243,6 @@ public class SSLoginViewModel implements SSViewModel, FirebaseAuth.AuthStateList
                 });
 
     }
-
     public void onClickSignInGoogle(){
         this.ssLoginLoadingVisibility.set(View.VISIBLE);
         this.ssLoginControlsVisibility.set(View.INVISIBLE);
